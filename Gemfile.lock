@@ -91,6 +91,7 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
+    mysql2 (0.5.3)
     nio4r (2.5.8)
     nokogiri (1.12.4)
       mini_portile2 (~> 2.6.1)
@@ -200,7 +201,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.1.0)
     thread_safe (0.3.6)
     tzinfo (1.2.9)
@@ -219,6 +219,7 @@ DEPENDENCIES
   factory_bot
   factory_bot_rails
   listen (~> 3.2)
+  mysql2
   pry
   pry-byebug
   puma (~> 4.1)
@@ -232,7 +233,6 @@ DEPENDENCIES
   rubocop-rspec
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
