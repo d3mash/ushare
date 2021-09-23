@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  db:
+    image: "mysql:8.0"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DEVELOPMENT_DATABASE_PASSWORD}
+      MYSQL_USERNAME: ${DEVELOPMENT_DATABASE_USERNAME}
+      MYSQL_PASSWORD: ${DEVELOPMENT_DATABASE_PASSWORD}
+        - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db:/var/run/mysqld
+    logging:
+      driver: none
+    ports:
+      - "33061:3306"
+  api:
+    build: ../
+    command: bundle exec rails s -p 3000 -e development -b '0.0.0.0'
+    environment:
+      DB_USERNAME: ${DEVELOPMENT_DATABASE_USERNAME}
+      DB_PASSWORD: ${DEVELOPMENT_DATABASE_PASSWORD}
+      DB_NAME: ${DEVELOPMENT_DATABASE_NAME}
+      DB_PORT: 3306
+      DB_HOST: db
+      RAILS_ENV: development
+      RAILS_MAX_THREADS: 5
+      BUNDLE_PATH: /bundle
+    volumes:
+      - ../:/ushare
+      - bundle:/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - "db"
+volumes:
+  db:
+  bundle:
+  api: 

@@ -8,7 +8,6 @@ ruby '2.7.3'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
-gem 'sqlite3', '~> 1.4'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
